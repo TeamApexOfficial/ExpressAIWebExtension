@@ -1,3 +1,5 @@
+# Express AI - AI-Powered Emotional Intelligence Analyzer To Covert Webpage Text To Speech in Emotional Tone
+
 <p align="center">
     <img src="https://img.shields.io/github/forks/teamapexofficial/ExpressAIWebExtension?style=flat-square" alt="ExpressAIWebExtension forks"/>
     <img src="https://img.shields.io/github/stars/teamapexofficial/ExpressAIWebExtension?style=flat-square" alt="ExpressAIWebExtension stars"/>
@@ -7,7 +9,7 @@
     <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="ExpressAIWebExtension pull-requests"/>
 </p>
 
-# Express AI - AI-Powered Emotional Intelligence Analyzer
+# 📜Description
 
 🚀 **ExpressAI** is an AI-driven tool that helps content creators analyze and refine the emotional tone of their writing in real-time.  
 🔍 It provides feedback on emotional tone, helping users craft **empathetic, persuasive, or neutral** messages.
