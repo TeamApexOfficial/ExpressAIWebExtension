@@ -1,47 +1,28 @@
-let isSpeaking = false;
+let isReading = false;
 let isPaused = false;
 
-document.getElementById("toggle-btn").addEventListener("click", async () => {
-	let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-	chrome.scripting.executeScript({
-		target: { tabId: tab.id },
-		function: toggleReading,
+document.getElementById("toggleBtn").addEventListener("click", () => {
+	chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+		if (!isReading) {
+			chrome.tabs.sendMessage(tabs[0].id, { command: "start" });
+			document.getElementById("toggleBtn").textContent = "Stop Reading";
+		} else {
+			chrome.tabs.sendMessage(tabs[0].id, { command: "stop" });
+			document.getElementById("toggleBtn").textContent = "Start Reading";
+		}
+		isReading = !isReading;
 	});
 });
 
-document.getElementById("pause-btn").addEventListener("click", async () => {
-	let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-	chrome.scripting.executeScript({
-		target: { tabId: tab.id },
-		function: pauseOrResume,
+document.getElementById("pauseResumeBtn").addEventListener("click", () => {
+	chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+		if (!isPaused) {
+			chrome.tabs.sendMessage(tabs[0].id, { command: "pause" });
+			document.getElementById("pauseResumeBtn").textContent = "Resume";
+		} else {
+			chrome.tabs.sendMessage(tabs[0].id, { command: "resume" });
+			document.getElementById("pauseResumeBtn").textContent = "Pause";
+		}
+		isPaused = !isPaused;
 	});
 });
-
-function toggleReading() {
-	if (!window.speechSynthesis) return;
-
-	if (!window._isSpeaking) {
-		const text = document.body.innerText;
-		const utterance = new SpeechSynthesisUtterance(text);
-		window._utterance = utterance;
-		window._isSpeaking = true;
-		speechSynthesis.speak(utterance);
-
-		utterance.onend = () => {
-			window._isSpeaking = false;
-		};
-	} else {
-		speechSynthesis.cancel();
-		window._isSpeaking = false;
-	}
-}
-
-function pauseOrResume() {
-	if (!window.speechSynthesis) return;
-
-	if (speechSynthesis.speaking && !speechSynthesis.paused) {
-		speechSynthesis.pause();
-	} else if (speechSynthesis.paused) {
-		speechSynthesis.resume();
-	}
-}
