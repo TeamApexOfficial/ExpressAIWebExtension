@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
     <title>Express AI</title>
-    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 10px;
+            width: 200px;
+        }
+
+        button {
+            width: 100%;
+            margin: 5px 0;
+            padding: 8px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <img src="icon.png" alt="Express AI" class="logo" />
-        <h1>Express AI</h1>
-        <button id="toggle-btn">🔊 Start Reading</button>
-        <button id="pause-btn">⏸ Pause</button>
-        <p class="footer">Developed by <strong>Team Apex</strong></p>
-    </div>
+    <h3>Express AI</h3>
+    <button id="toggle-btn">Start / Stop</button>
+    <button id="pause-btn">Pause / Resume</button>
+    <p style="font-size: 10px; text-align: center;">Developed by Team Apex</p>
     <script src="popup.js"></script>
 </body>
 

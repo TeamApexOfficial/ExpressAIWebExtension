@@ -1,18 +1,15 @@
 {
-	"manifest_version": 3,
 	"name": "Express AI",
 	"version": "1.0.0",
-	"description": "Converts webpage text to speech. Developed by Team Apex.",
+	"description": "Text-to-speech with sentence highlighting",
+	"manifest_version": 3,
 	"permissions": ["scripting", "activeTab"],
 	"action": {
 		"default_popup": "popup.html",
 		"default_icon": "icon.png"
 	},
 	"background": {
-		"service_worker": "content.js"
-	},
-	"icons": {
-		"128": "icon.png"
+		"service_worker": "background.js"
 	},
 	"host_permissions": ["<all_urls>"]
 }
