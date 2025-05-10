@@ -30,6 +30,44 @@ function extractRelevantContent() {
 	return content || "Relevant content not found.";
 }
 
+// function getFemaleVoice() {
+// 	const voices = speechSynthesis.getVoices();
+// 	return voices.find((voice) =>
+// 		// voice.name.toLowerCase().includes("female") ||
+// 		// voice.name.toLowerCase().includes("zira") || // Windows
+// 		// voice.name.toLowerCase().includes("samantha") || // macOS
+// 		voice.name.toLowerCase().includes("google uk english female")
+// 	);
+// }
+
+// function speakText(text) {
+// 	// Cancel any ongoing speech
+// 	if (utterance) window.speechSynthesis.cancel();
+
+// 	// Create new utterance
+// 	utterance = new SpeechSynthesisUtterance(text);
+// 	utterance.rate = 1;
+// 	utterance.pitch = 1;
+
+// 	const voices = speechSynthesis.getVoices();
+
+// 	if (voices.length === 0) {
+// 		// Wait for voices to load
+// 		speechSynthesis.onvoiceschanged = () => {
+// 			const femaleVoice = getFemaleVoice();
+// 			if (femaleVoice) utterance.voice = femaleVoice; // Set only if found
+// 			speechSynthesis.speak(utterance); // Speak regardless
+// 		};
+// 	} else {
+// 		const femaleVoice = getFemaleVoice();
+// 		if (femaleVoice) {
+// 			utterance.voice = femaleVoice;
+// 		}
+// 		// Speak even if female voice not found
+// 		speechSynthesis.speak(utterance);
+// 	}
+// }
+
 function speakText(text) {
 	if (utterance) window.speechSynthesis.cancel();
 	utterance = new SpeechSynthesisUtterance(text);
@@ -53,4 +91,8 @@ chrome.runtime.onMessage.addListener((msg) => {
 	} else if (msg.type === "stopSpeech") {
 		speechSynthesis.cancel();
 	}
+});
+
+window.addEventListener("beforeunload", () => {
+	speechSynthesis.cancel();
 });
