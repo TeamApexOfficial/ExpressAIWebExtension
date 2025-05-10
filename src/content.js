@@ -18,7 +18,12 @@ function extractRelevantContent() {
 
 	// Tutorialspoint
 	else if (location.hostname.includes("tutorialspoint.com")) {
-		content = document.querySelector(".mui-container-fluid")?.innerText;
+		content = document.querySelector(".tutorial-content")?.innerText;
+	}
+
+	// general websites
+	else if (window.location.href) {
+		content = document.body?.innerText || "";
 	}
 
 	// here we are using the location.hostname to identify the website and extract relevant content ---------------------------------------------------------------------------------------------------------
