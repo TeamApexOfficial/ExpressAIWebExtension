@@ -4,7 +4,6 @@
     <img src="https://img.shields.io/github/forks/teamapexofficial/ExpressAIWebExtension?style=flat-square" alt="ExpressAIWebExtension forks"/>
     <img src="https://img.shields.io/github/stars/teamapexofficial/ExpressAIWebExtension?style=flat-square" alt="ExpressAIWebExtension stars"/>
     <img src="https://img.shields.io/github/issues/teamapexofficial/ExpressAIWebExtension?style=flat-square" alt="ExpressAIWebExtension issues"/>
-    <img src="https://img.shields.io/github/issues-pr/teamapexofficial/ExpressAIWebExtension?style=flat-square" alt="License: Apache 2.0"/>
     <img src="https://visitor-badge.laobi.icu/badge?page_id=expressaiwebextension" id="counter">
     <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="ExpressAIWebExtension pull-requests"/>
 </p>
